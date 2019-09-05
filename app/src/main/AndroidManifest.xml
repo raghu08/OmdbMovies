@@ -33,7 +33,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.noonacademy.assignment.omdb.movies.ui.MovieDetailActivity">
+            android:name="com.noonacademy.assignment.omdb.movies.ui.MovieDetailActivity"
+            android:theme="@style/DetailTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>

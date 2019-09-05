@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/media_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxEms="12"
+        android:singleLine="true"
+        android:text="@{movie.title}"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:text="Star Wars: The Last Jedi" />
+
+    <TextView
+        android:id="@+id/release_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="14sp"
+        tools:text="Release Date :" />
+
+    <ImageView
+        android:id="@+id/ic_rated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/micro_margin"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_action_star"
+        app:srcCompat="@drawable/ic_action_star" />
+
+
+</LinearLayout>

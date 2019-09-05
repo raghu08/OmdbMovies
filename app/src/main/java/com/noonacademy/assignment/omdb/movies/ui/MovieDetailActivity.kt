@@ -20,7 +20,7 @@ class MovieDetailActivity : AppCompatActivity() {
           //  mBinding.mediaEntity = mediaEntity
             media_title.text = mediaEntity.title
             release_date.text = mediaEntity.released
-            imdb_rated.text = mediaEntity.imdbrating
+         //   imdb_rated.text = mediaEntity.imdbrating
             metascore.text = mediaEntity.metascore
             casting.text = mediaEntity.actors
             production.text = mediaEntity.production
@@ -36,7 +36,7 @@ class MovieDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_movie_detail)
+        setContentView(R.layout.activity_movie_details)
         val intent = intent
         val mMediaId = intent.getStringExtra("mediaid")
 
@@ -46,12 +46,12 @@ class MovieDetailActivity : AppCompatActivity() {
         mediaViewModel.observableMedia?.let {
             observerMediaResult(it) }
 
-        btn_back.setOnClickListener {
+        /*btn_back.setOnClickListener {
             this.finish()
         }
         ic_rated.setOnClickListener{
             mediaViewModel.bookMarkMovie(mMediaId)
-        }
+        }*/
     }
 
     private fun observerMediaResult(mediaObservable: LiveData<MediaEntity>) {
