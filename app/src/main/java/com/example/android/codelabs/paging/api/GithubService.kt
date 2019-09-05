@@ -59,7 +59,7 @@ fun searchRepos(
     service.searchRepos(apiQuery, page, itemsPerPage).enqueue(
             object : Callback<RepoSearchResponse> {
                 override fun onFailure(call: Call<RepoSearchResponse>?, t: Throwable) {
-                    Log.d(TAG, "fail to get data")
+                    Log.d(TAG, "fail to get dataa")
                     onError(t.message ?: "unknown error")
                 }
 
