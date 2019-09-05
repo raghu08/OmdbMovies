@@ -16,7 +16,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.android.codelabs.paging">
+          package="com.noonacademy.assignment.omdb.movies">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:icon="@mipmap/ic_launcher"
@@ -26,14 +26,14 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.example.android.codelabs.paging.ui.SearchRepositoriesActivity">
+            android:name="com.noonacademy.assignment.omdb.movies.ui.SearchMoviesActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.android.codelabs.paging.ui.MediaActivity">
+            android:name="com.noonacademy.assignment.omdb.movies.ui.MovieDetailActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
