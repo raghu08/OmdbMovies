@@ -42,8 +42,8 @@ class OmdbRepository(
     fun fetchMovieDetails(query: String): LiveData<MediaEntity> {
         val moviesData = MutableLiveData<MediaEntity>()
         val networkErrors = MutableLiveData<String>()
-        fetchMovie(service, query, { repos ->
-            cache.insertMovie(repos) {
+        fetchMovie(service, query, { movie ->
+            cache.insertMovie(movie) {
                 moviesData.postValue(cache.moviesByMediaId(query))
             }
         }, { error ->
@@ -52,8 +52,12 @@ class OmdbRepository(
         return moviesData
     }
 
-    fun bookMarkMovie(mediaId:String){
+    fun bookMarkMovie(mediaId: String) {
         cache.updateMovieWithBookMark(mediaId)
+    }
+
+    fun getBookMarkedMovies(): LiveData<List<MediaEntity>> {
+       return cache.getBookMarkedMovies()
     }
 
 

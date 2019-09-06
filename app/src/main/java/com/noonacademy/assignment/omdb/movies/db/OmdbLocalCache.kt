@@ -1,7 +1,8 @@
-
 package com.noonacademy.assignment.omdb.movies.db
 
 import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.noonacademy.assignment.omdb.movies.model.MediaEntity
 import java.util.concurrent.Executor
@@ -49,12 +50,19 @@ class OmdbLocalCache(
 
 
     fun moviesByName(name: String): DataSource.Factory<Int, MediaEntity> {
-        // appending '%' so we can allow other characters to be before and after the query string
-        //val query = "%${name.replace(' ', '%')}%"
         return mediaDao.loadMediaFromSearch(name)
     }
 
     fun moviesByMediaId(name: String): MediaEntity {
         return mediaDao.loadMedia(name)
     }
+
+    fun getBookMarkedMovies(): LiveData<List<MediaEntity>> {
+       // ioExecutor.execute {
+           return mediaDao.loadBookMarkedMedia(true)
+          //  loaded()
+        //}
+    }
+
+
 }

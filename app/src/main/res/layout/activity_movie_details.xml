@@ -11,9 +11,9 @@
     >
 
     <com.google.android.material.appbar.AppBarLayout
-        android:elevation="4dp"
+        android:elevation="@dimen/margin_4"
         android:id="@+id/appBarLayout"
-        android:layout_height="280dp"
+        android:layout_height="@dimen/height_280"
         android:layout_width="match_parent"
         tools:targetApi="LOLLIPOP">
 
@@ -37,6 +37,10 @@
                 android:id="@+id/movie_detail_toolbar"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/margin_20"
+                app:theme="@style/ToolbarTheme"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:titleTextColor="@android:color/white"
                 app:layout_collapseMode="pin" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
@@ -48,10 +52,10 @@
 
         <LinearLayout
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/margin_10"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="@dimen/margin_15">
 
             <include
                 android:id="@+id/detail_header"

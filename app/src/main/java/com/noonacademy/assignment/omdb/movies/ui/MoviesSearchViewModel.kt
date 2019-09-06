@@ -16,14 +16,12 @@ import com.noonacademy.assignment.omdb.movies.model.MovieSearchResult
 class MoviesSearchViewModel(private val repository: OmdbRepository) : ViewModel() {
 
     private val queryLiveData = MutableLiveData<String>()
-    /* private val repoResult: LiveData<RepoSearchResult> = Transformations.map(queryLiveData) {
-         repository.search(it)
-     }*/
+    var bookMarkLiveData = repository.getBookMarkedMovies()
+
     private val movieResult: LiveData<MovieSearchResult> = Transformations.map(queryLiveData) {
         repository.searchMovie(it)
     }
 
-    // val repos: LiveData<PagedList<Repo>> = Transformations.switchMap(repoResult) { it.data }
     val movies: LiveData<PagedList<MediaEntity>> = Transformations.switchMap(movieResult) { it.data }
 
     val networkErrors: LiveData<String> = Transformations.switchMap(movieResult) {
@@ -35,6 +33,10 @@ class MoviesSearchViewModel(private val repository: OmdbRepository) : ViewModel(
      */
     fun searchRepo(queryString: String) {
         queryLiveData.postValue(queryString)
+    }
+
+    fun getBookMarkedMovies() {
+        repository.getBookMarkedMovies()
     }
 
     /**

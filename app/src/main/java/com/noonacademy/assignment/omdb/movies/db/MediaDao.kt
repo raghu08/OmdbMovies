@@ -1,6 +1,7 @@
 package com.noonacademy.assignment.omdb.movies.db
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
@@ -22,7 +23,7 @@ interface MediaDao {
     fun loadMedia(mediaId: String): MediaEntity
 
     @Query("select * from media where bookmark = :isBookmarked")
-    fun loadBookMarkedMedia(isBookmarked:Boolean): List<MediaEntity>
+    fun loadBookMarkedMedia(isBookmarked:Boolean): LiveData<List<MediaEntity>>
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun insertMedia(mediaEntity: MediaEntity)

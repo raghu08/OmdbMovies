@@ -12,8 +12,8 @@ class MovieDetailViewModel(private val repository: OmdbRepository, mediaId: Stri
         repository.fetchMovieDetails(it)
     }
 
-    fun bookMarkMovie(mediaId: String) {
-        repository.bookMarkMovie(mediaId)
+    fun bookMarkMovie(movieId: String) {
+        repository.bookMarkMovie(movieId)
     }
 
 

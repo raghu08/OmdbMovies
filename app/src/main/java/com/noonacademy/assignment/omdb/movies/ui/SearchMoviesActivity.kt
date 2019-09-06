@@ -15,11 +15,18 @@ import com.noonacademy.assignment.omdb.movies.Injection
 import com.noonacademy.assignment.omdb.movies.R
 import com.noonacademy.assignment.omdb.movies.model.MediaEntity
 import kotlinx.android.synthetic.main.activity_search_movies.*
+import android.util.TypedValue
+import androidx.recyclerview.widget.LinearLayoutManager
+
+
+
+
 
 class SearchMoviesActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MoviesSearchViewModel
     private val adapterMovies = SearchMovieAdapter()
+    private val bookMarkAdapter = BookMarkMovieAdapter(listOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +43,7 @@ class SearchMoviesActivity : AppCompatActivity() {
         initAdapter()
         val query = savedInstanceState?.getString(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY
         viewModel.searchRepo(query)
+
         initSearch(query)
     }
 
@@ -46,12 +54,19 @@ class SearchMoviesActivity : AppCompatActivity() {
 
     private fun initAdapter() {
         list.adapter = adapterMovies
+        recycler.adapter = bookMarkAdapter
+        recycler.setLayoutManager(LinearLayoutManager(applicationContext, LinearLayoutManager.HORIZONTAL, false))
         viewModel.movies.observe(this, Observer<PagedList<MediaEntity>> {
             Log.d("Activity", "list: ${it?.size}")
             showEmptyList(it?.size == 0)
             adapterMovies.submitList(it)
         })
-
+        viewModel.getBookMarkedMovies()
+        viewModel.bookMarkLiveData.observe(this, Observer<List<MediaEntity>?> {
+            Log.d("Activity", "Paged list: ${it?.size}")
+             showOrHideBookmarks(it?.size==0)
+             it?.let { bookMarkAdapter.notifyDataSet(it) }
+        })
         viewModel.networkErrors.observe(this, Observer<String> {
             Toast.makeText(this, "\uD83D\uDE28 Wooops $it", Toast.LENGTH_LONG).show()
         })
@@ -95,6 +110,14 @@ class SearchMoviesActivity : AppCompatActivity() {
         } else {
             emptyList.visibility = View.GONE
             list.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showOrHideBookmarks(show: Boolean) {
+        if (show) {
+            recycler.visibility = View.GONE
+        } else {
+            recycler.visibility = View.VISIBLE
         }
     }
 
