@@ -52,14 +52,13 @@ class OmdbRepository(
         return moviesData
     }
 
-    fun bookMarkMovie(mediaId: String) {
-        cache.updateMovieWithBookMark(mediaId)
+    fun bookMarkMovie(mediaId: String,bookMarked:Boolean=true) {
+        cache.updateMovieWithBookMark(mediaId,bookMarked)
     }
 
     fun getBookMarkedMovies(): LiveData<List<MediaEntity>> {
        return cache.getBookMarkedMovies()
     }
-
 
     companion object {
         private const val DATABASE_PAGE_SIZE = 20

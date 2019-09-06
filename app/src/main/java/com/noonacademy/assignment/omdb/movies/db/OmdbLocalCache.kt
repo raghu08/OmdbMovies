@@ -41,10 +41,9 @@ class OmdbLocalCache(
     /**
      * Insert a single record in the database, on a background thread.
      */
-    fun updateMovieWithBookMark(query: String) {
+    fun updateMovieWithBookMark(query: String, bookMarked: Boolean = true) {
         ioExecutor.execute {
-            Log.d("OmdbLocalCache", "inserting ${query} repos")
-            mediaDao.update(true, query)
+            mediaDao.update(bookMarked, query)
         }
     }
 
@@ -58,11 +57,7 @@ class OmdbLocalCache(
     }
 
     fun getBookMarkedMovies(): LiveData<List<MediaEntity>> {
-       // ioExecutor.execute {
-           return mediaDao.loadBookMarkedMedia(true)
-          //  loaded()
-        //}
+        return mediaDao.loadBookMarkedMedia(true)
     }
-
 
 }

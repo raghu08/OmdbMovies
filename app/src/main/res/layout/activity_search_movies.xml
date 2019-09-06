@@ -21,24 +21,24 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/movie_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingVertical="@dimen/row_item_margin"
+        android:paddingVertical="@dimen/margin_6"
         android:scrollbars="vertical"
         app:layoutManager="LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recycler"
+        app:layout_constraintTop_toBottomOf="@+id/bookmarkedMovies"
         tools:ignore="UnusedAttribute" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler"
+        android:id="@+id/bookmarkedMovies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_15"
-        android:padding="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_6"
+        android:padding="@dimen/margin_6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/input_layout" />
 
@@ -56,13 +56,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/search_repo"
+            android:id="@+id/search_movies"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/search_hint"
             android:imeOptions="actionSearch"
             android:inputType="textNoSuggestions"
-            tools:text="Android" />
+            tools:text="BigBang" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

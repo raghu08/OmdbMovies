@@ -18,7 +18,11 @@
     <string name="label_casting">Casting :</string>
     <string name="suffix_rated">/10</string>
     <string name="label_type">Type :</string>
+    <string name="label_runtime">Run Time :</string>
     <string name="label_production">Production :</string>
     <string name="default_search_message">Use the searchbar to find TV Shows &amp; Movies !</string>
     <string name="empty_search_message">No media found. Try Again !</string>
+    <string name="na">N/A</string>
+    <string name="MovieDetail">MovieDetail</string>
+    <string name="bookmark">Bookmark</string>
 </resources>

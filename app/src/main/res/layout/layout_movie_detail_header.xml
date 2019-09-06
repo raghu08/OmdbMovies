@@ -29,18 +29,19 @@
         android:layout_marginTop="@dimen/margin_6"
         android:gravity="center"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="14sp"
+        android:textSize="@dimen/textsize_14"
         tools:text="Release Date :" />
 
-    <ImageView
-        android:id="@+id/ic_rated"
+    <Button
+        android:id="@+id/bookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_8"
         android:layout_marginStart="@dimen/margin_4"
         android:layout_gravity="center_horizontal"
-        android:src="@drawable/ic_action_star"
-        app:srcCompat="@drawable/ic_action_star" />
+        android:text="@string/bookmark"
+/>
+
 
 
 </LinearLayout>

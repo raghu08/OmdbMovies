@@ -38,6 +38,10 @@ class MoviesSearchViewModel(private val repository: OmdbRepository) : ViewModel(
     fun getBookMarkedMovies() {
         repository.getBookMarkedMovies()
     }
+    fun deleteMovie(mediaId:String) {
+        repository.bookMarkMovie(mediaId,false)
+        repository.getBookMarkedMovies()
+    }
 
     /**
      * Get the last query value.
